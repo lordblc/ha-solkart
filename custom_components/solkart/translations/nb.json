@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Solkart",
-        "description": "Skriv inn Solkart API-nøkkel og posisjon. Få en gratis nøkkel på https://solkart.no/api",
+        "description": "Skriv inn Solkart API-nøkkel og posisjon. En gratis API-nøkkel er tilgjengelig fra Solkart sine nettsider.",
         "data": {
           "api_key": "API-nøkkel",
           "latitude": "Breddegrad",

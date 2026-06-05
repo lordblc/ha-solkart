@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Solkart",
-        "description": "Enter your Solkart API key and location. Get a free key at https://solkart.no/api",
+        "description": "Enter your Solkart API key and location. A free API key is available from the Solkart website.",
         "data": {
           "api_key": "API key",
           "latitude": "Latitude",
