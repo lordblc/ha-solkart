@@ -1,0 +1,82 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Solkart",
+        "description": "Enter your Solkart API key and location. Get a free key at https://solkart.no/api",
+        "data": {
+          "api_key": "API key",
+          "latitude": "Latitude",
+          "longitude": "Longitude"
+        },
+        "data_description": {
+          "api_key": "Your Solkart API key (starts with sk_live_).",
+          "latitude": "Defaults to your Home Assistant location.",
+          "longitude": "Defaults to your Home Assistant location."
+        }
+      },
+      "array": {
+        "title": "Add a panel array",
+        "description": "Describe a group of panels with the same tilt and orientation. Arrays added so far: {count}. Tick \"Add another array\" to add east/west splits in one go.",
+        "data": {
+          "name": "Name",
+          "kwp": "Installed power (kWp)",
+          "tilt_deg": "Tilt (0 = flat, 90 = vertical)",
+          "azimuth_deg": "Azimuth (0 = N, 90 = E, 180 = S, 270 = W)",
+          "add_another": "Add another array"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate Solkart",
+        "description": "The Solkart API key was rejected. Enter a valid key to continue.",
+        "data": {
+          "api_key": "API key"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid API key.",
+      "cannot_connect": "Could not connect to the Solkart API."
+    },
+    "abort": {
+      "already_configured": "This location is already configured.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Solkart options",
+        "data": {
+          "performance_ratio": "Performance ratio",
+          "update_interval_minutes": "Update interval (minutes)",
+          "daily": "From midnight (Basic+ only)",
+          "extended": "10-day forecast (Basic+ only)"
+        },
+        "data_description": {
+          "performance_ratio": "System efficiency 0–1 (default 0.85).",
+          "update_interval_minutes": "How often to poll. Keep this high on the free tier to stay within quota.",
+          "daily": "Requires a Basic+ subscription. Ignored on the free tier.",
+          "extended": "Requires a Basic+ subscription. Ignored on the free tier."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_production_now": { "name": "Power production now" },
+      "power_production_next_hour": { "name": "Power production next hour" },
+      "ghi_now": { "name": "Solar irradiance now" },
+      "energy_production_today": { "name": "Energy production today" },
+      "energy_production_today_remaining": { "name": "Energy production today remaining" },
+      "energy_production_tomorrow": { "name": "Energy production tomorrow" },
+      "energy_current_hour": { "name": "Energy current hour" },
+      "energy_next_hour": { "name": "Energy next hour" },
+      "power_highest_peak_time_today": { "name": "Highest power peak time today" },
+      "power_highest_peak_time_tomorrow": { "name": "Highest power peak time tomorrow" },
+      "peak_power": { "name": "Peak power" },
+      "forecast_cycle_time": { "name": "Forecast cycle time" },
+      "array_power_now": { "name": "{array_name} power" }
+    }
+  }
+}
