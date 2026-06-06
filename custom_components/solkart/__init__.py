@@ -35,24 +35,3 @@ async def _async_update_listener(
 ) -> None:
     """Reload the entry when its options change (e.g. update interval)."""
     await hass.config_entries.async_reload(entry.entry_id)
-
-
-async def async_get_solar_forecast(
-    hass: HomeAssistant, config_entry_id: str
-) -> dict[str, dict[str, float]] | None:
-    """Return a solar production forecast for the HA Energy dashboard.
-
-    The Energy dashboard calls this for any config entry whose domain exposes
-    it, letting the user pick Solkart as a "Solar production forecast".
-    """
-    entry: SolkartConfigEntry | None = hass.config_entries.async_get_entry(
-        config_entry_id
-    )
-    if entry is None:
-        return None
-    coordinator: SolkartDataUpdateCoordinator | None = getattr(
-        entry, "runtime_data", None
-    )
-    if coordinator is None or coordinator.data is None:
-        return None
-    return {"wh_hours": coordinator.data.wh_hours()}

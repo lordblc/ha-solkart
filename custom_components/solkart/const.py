@@ -44,7 +44,7 @@ REQUEST_TIMEOUT: Final = 30
 # Integration version (keep in sync with manifest.json) and the User-Agent we
 # send. Solkart sits behind Cloudflare, which blocks some default UAs (notably
 # python-urllib); an explicit UA both identifies us and avoids that.
-VERSION: Final = "0.1.0"
+VERSION: Final = "0.1.1"
 USER_AGENT: Final = f"ha-solkart/{VERSION}"
 
 # How long the manufacturer string stays.
