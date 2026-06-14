@@ -143,8 +143,12 @@ class SolkartData:
         return round(total, 3)
 
     def energy_today(self, now: datetime) -> float:
-        """Today's total energy (kWh). Best-effort on the free tier (the series
-        starts at the latest model cycle, so early-morning hours may be absent).
+        """Today's total energy (kWh).
+
+        The API series starts at the latest model cycle, but the coordinator
+        merges points across cycles and persists them, so already-elapsed hours
+        of today are retained and this is a full-day total (not just the
+        remaining hours).
         """
         return self.energy_for_date(now, now.date())
 
